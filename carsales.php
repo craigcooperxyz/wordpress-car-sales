@@ -635,11 +635,11 @@ add_smart_meta_box('car_details_meta', array(
 		break;
 
 		case 'price' :
-                echo get_post_meta($post->ID, 'price', true);
+                echo get_post_meta($post->ID, 'wcs_price', true);
         break;
 
 		case 'vrm' :
-                echo get_post_meta($post->ID, 'vrm', true);
+                echo get_post_meta($post->ID, 'wcs_vrm', true);
         break;
     }
 }
@@ -653,8 +653,8 @@ add_smart_meta_box('car_details_meta', array(
 // Register custom rewrite rules
  
 	global $wp_rewrite;
-		$wp_rewrite->add_rewrite_tag('%car%', '([^/]+)', 'car=');
-		$wp_rewrite->add_rewrite_tag('%vrm%', '([^/]+)', 'vrm=');
+		$wp_rewrite->add_rewrite_tag('%car%', '([^/]+)', 'wcs_car=');
+		$wp_rewrite->add_rewrite_tag('%vrm%', '([^/]+)', 'wcs_vrm=');
 		$wp_rewrite->add_permastruct('car', '/cars/%car%/%vrm%/', false);
 	}
 	
@@ -668,7 +668,7 @@ add_smart_meta_box('car_details_meta', array(
 	if($post->post_type != 'car' || empty($permalink) || in_array($post->post_status, array('draft', 'pending', 'auto-draft')))
 	 
 	return $permalink;
-	$var1 = get_post_meta($post_id, 'vrm', true);
+	$var1 = get_post_meta($post_id, 'wcs_vrm', true);
 	$var1 = sanitize_title($var1);
 	if(!$var1) { $var1 = $no_data; }
 	$permalink = str_replace('%vrm%', $var1, $permalink);	 
