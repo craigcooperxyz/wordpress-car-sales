@@ -653,9 +653,9 @@ add_smart_meta_box('car_details_meta', array(
 // Register custom rewrite rules
  
 	global $wp_rewrite;
-		$wp_rewrite->add_rewrite_tag('%car%', '([^/]+)', 'wcs_car=');
+		$wp_rewrite->add_rewrite_tag('%car%', '([^/]+)', 'car=');
 		$wp_rewrite->add_rewrite_tag('%vrm%', '([^/]+)', 'wcs_vrm=');
-		$wp_rewrite->add_permastruct('car', '/cars/%car%/%vrm%/', false);
+		$wp_rewrite->add_permastruct('car', '/%car%/%vrm%/', false);
 	}
 	
 	add_filter('post_type_link', 'wordpress_car_sales_permalinks', 10, 3);
