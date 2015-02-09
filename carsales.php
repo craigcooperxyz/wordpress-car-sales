@@ -153,7 +153,6 @@ function register_cpt_car() {
     $args = array(
         'labels' => $labels,
         'hierarchical' => false,
-
         'supports' => array( 'title', 'editor', 'excerpt', 'thumbnail', 'revisions', 'tags', 'author', 'publicize' ),
         'taxonomies' => array( 'fuel', 'gearbox', 'makemodel', 'plateyear', 'taxclass', 'listingfeatures', 'listingtypes', 'post_tag' ),
         'public' => true,
@@ -167,7 +166,7 @@ function register_cpt_car() {
         'has_archive' => true,
         'query_var' => true,
         'can_export' => true,
-        'rewrite' => array( 'slug' => 'used-cars', 'with_front' => TRUE),
+        'rewrite' => array( 'slug' => 'cars-for-sale', 'with_front' => TRUE),
         'capability_type' => 'post'
     );
 
